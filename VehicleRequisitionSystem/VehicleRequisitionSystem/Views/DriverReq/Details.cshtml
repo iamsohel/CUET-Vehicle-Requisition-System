@@ -1,0 +1,123 @@
+﻿@model VehicleRequisitionSystem.Models.Requisition
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Requisition Details
+
+        </h1>
+        @if (ViewBag.Message != null)
+        {
+            <div class="form-group">
+                <div class="col-md-10"><p>@ViewBag.Message</p></div>
+            </div>
+        }
+        <ol class="breadcrumb">
+            <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active"><a href="#"> Requisition Details</a></li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Requisition Details</h3>
+                        <div class="box-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                            <tr>
+                                <th>Vehicle Name</th>
+                                <td>@Html.DisplayFor(model => model.Vehicle.VehicleName)</td>
+                            </tr>
+                            <tr>
+                                <th>Driver Name</th>
+                                <td>@Html.DisplayFor(model => model.Driver.DriverName)</td>
+                            </tr>
+                            <tr>
+                                <th>Vehicle Number</th>
+                                <td>@Html.DisplayFor(model => model.Vehicle.VehicleNo)</td>
+                            </tr>
+                            <tr>
+                                <th>ID</th>
+                                <td>@Html.DisplayFor(model => model.UsersId)</td>
+                            </tr>
+                            <tr>
+                                <th>Full Name</th>
+                                <td>@Html.DisplayFor(model => model.FullName)</td>
+                            </tr>
+                            <tr>
+                                <th>Department</th>
+                                <td>@Html.DisplayFor(model => model.Department.DepartmentName)</td>
+                            </tr>
+                            <tr>
+                                <th>Designation</th>
+                                <td>@Html.DisplayFor(model => model.Designation.DesignationName)</td>
+                            </tr>                          
+                            <tr>
+                                <th>Why Use</th>
+                                <td>@Html.DisplayFor(model => model.WhyUse)</td>
+                            </tr>
+                            <tr>
+                                <th>Use Type</th>
+                                <td>@Html.DisplayFor(model => model.UseType.TypeName)</td>
+                            </tr>
+                            <tr>
+                                <th>Journey Date</th>
+                                <td>@Convert.ToString(string.Format("{0:dd/MMM/yyyy}", Model.Date))</td>
+                            </tr>
+                            <tr>
+                                <th>Place To Present Vehicle</th>
+                                <td>@Html.DisplayFor(model => model.Place)</td>
+                            </tr>
+                            <tr>
+                                <th>Departure Time</th>
+                                <td>@Convert.ToString(string.Format("{0:hh:mm tt}", Model.Time))</td>
+                            </tr>
+                            <tr>
+                                <th>Destination</th>
+                                <td>@Html.DisplayFor(model => model.Destination)</td>
+                            </tr>
+                            <tr>
+                                <th>Return Time</th>
+                                <td>@Convert.ToString(string.Format("{0:hh:mm tt}", Model.ReturnTime))</td>
+                            </tr>
+                            <tr>
+                                <th>Mobile No</th>
+                                <td>@Html.DisplayFor(model => model.Mobile)</td>
+                            </tr>                         
+                        </table>
+                        <div class="box box-primary">
+
+                            <!-- /.box-body -->
+                            <div class="box-footer">
+                                @Html.ActionLink("Back", "Index", "DriverReq", null, new { @type = "submit", @class = "btn btn-default" })
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>

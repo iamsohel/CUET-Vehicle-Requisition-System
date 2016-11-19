@@ -1,0 +1,189 @@
+﻿@model VehicleRequisitionSystem.Models.Requisition
+
+@{
+    ViewBag.Title = "Requisition";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+        <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Requisition Form
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Requisition</li>
+            </ol>
+        </section>
+        <!-- Main content -->
+        <section class="content">
+
+            <!-- Main row -->
+            <div class="row">
+                <!-- Left col -->
+                <div class="col-md-7">
+                    <!-- Horizontal Form -->
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Requisition Form</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <!-- form start -->
+
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">User Id</label>
+                                @Html.TextBoxFor(model => model.UsersId, new { @class = "form-control", @id = "exampleInputEmail1", @placeholder = "Enter UserId" })
+                                @Html.ValidationMessageFor(model => model.UsersId)
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Full Name</label>
+                                @Html.TextBoxFor(model => model.FullName, new { @class = "form-control", @id = "exampleInputEmail1", @placeholder = "Full Name" })
+                                @Html.ValidationMessageFor(model => model.FullName)
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Department</label>
+
+                                @Html.DropDownList("DepartmentId", null, new { @class = "form-control", @id = "exampleInputEmail1", @placeholder = "" })
+                                @Html.ValidationMessageFor(model => model.DepartmentId)
+
+                            </div>
+                          
+                            <div class="form-group">
+                                @Html.DropDownList("DriverId", null, new { @class = "form-control", @id = "exampleInputEmail1", @placeholder = "Driver", @style = "display:none" })
+                                @Html.ValidationMessageFor(model => model.DriverId)
+
+                            </div>
+                            <div class="form-group">
+                                @Html.DropDownList("VehicleStatusId", null, new { @class = "form-control", @id = "exampleInputEmail1", @placeholder = "Driver", @style = "display:none" })
+                                @Html.ValidationMessageFor(model => model.VehicleStatusId)
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Designation</label>
+
+                                @Html.DropDownList("DesignationId", null, new { @class = "form-control", @id = "exampleInputEmail1", @placeholder = "" })
+                                @Html.ValidationMessageFor(model => model.DesignationId)
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Vehicle Type</label>
+
+                                @Html.DropDownList("VehicleId", null, new { @class = "form-control", @id = "exampleInputEmail1", @placeholder = "" })
+                                @Html.ValidationMessageFor(model => model.VehicleId)
+
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Why To Use</label>
+                                @Html.TextBoxFor(model => model.WhyUse, new { @class = "form-control", @id = "exampleInputEmail1", @placeholder = "Why Use" })
+                                @Html.ValidationMessageFor(model => model.WhyUse)
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Use Type</label>
+
+                                @Html.DropDownList("UseTypeId", null, new { @class = "form-control", @id = "exampleInputEmail1", @placeholder = "" })
+                                @Html.ValidationMessageFor(model => model.UseTypeId)
+
+                            </div>
+                            <div class="form-group">
+                                <label>Journey Date:</label>
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    @Html.TextBoxFor(model => model.Date, new { @class = "form-control pull-right", @id = "datepicker", @placeholder = "Date" })
+                                    @Html.ValidationMessageFor(model => model.Date)
+                                </div>
+                                <!-- /.input group -->
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Place to Present Vehicle</label>
+                                @Html.TextBoxFor(model => model.Place, new { @class = "form-control", @id = "exampleInputEmail1", @placeholder = "Place" })
+                                @Html.ValidationMessageFor(model => model.Place)
+                            </div>
+                            <div class="bootstrap-timepicker">
+                                <div class="form-group">
+                                    <label>Departure Time:</label>
+                                    <div class="input-group">
+
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-clock-o"></i>
+                                        </div>
+                                        @Html.TextBoxFor(model => model.Time, new { @class = "form-control timepicker", @id = "exampleInputEmail1", @placeholder = "Time" })
+                                        @Html.ValidationMessageFor(model => model.Time)
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                                <!-- /.form group -->
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Destination</label>
+                                @Html.TextBoxFor(model => model.Destination, new { @class = "form-control", @id = "exampleInputEmail1", @placeholder = "Destination" })
+                                @Html.ValidationMessageFor(model => model.Destination)
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">File No</label>
+                                @Html.TextBoxFor(model => model.FileNo, new { @class = "form-control", @id = "exampleInputEmail1", @placeholder = "FileNo" })
+                                @Html.ValidationMessageFor(model => model.FileNo)
+                            </div>
+
+                            <div class="bootstrap-timepicker">
+                                <div class="form-group">
+                                    <label> Return Time:</label>
+                                    <div class="input-group">
+
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-clock-o"></i>
+                                        </div>
+                                        @Html.TextBoxFor(model => model.ReturnTime, new { @class = "form-control timepicker", @id = "exampleInputEmail1", @placeholder = "ReturnTime" })
+                                        @Html.ValidationMessageFor(model => model.ReturnTime)
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                                <!-- /.form group -->
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Mobile No</label>
+                                @Html.TextBoxFor(model => model.Mobile, new { @class = "form-control", @id = "exampleInputEmail1", @placeholder = "Mobile" })
+                                @Html.ValidationMessageFor(model => model.Mobile)
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer">
+                            @Html.ActionLink("Cancel", "Index", "Requisition", null, new { @type = "submit", @class = "btn btn-default" })
+
+                            <button type="submit" class="btn btn-primary">Apply</button>
+                        </div>
+
+                    </div>
+                    <!-- /.box -->
+                    <!-- general form elements disabled -->
+                    <!-- /.box -->
+                </div>
+                <!-- /.Left col -->
+                <!-- right col (We are only adding the ID to make the widgets sortable)-->
+                <!-- right col -->
+            </div>
+            <!-- /.row (main row) -->
+        </section>
+        <!-- /.content -->
+    </div>
+
+
+}
+
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

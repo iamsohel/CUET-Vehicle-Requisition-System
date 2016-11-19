@@ -1,0 +1,35 @@
+﻿@using Microsoft.Owin.Security;
+@using Microsoft.AspNet.Identity;
+@using VehicleRequisitionSystem.Models;
+@{
+    var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"].ToString();
+    string cLayout = "";
+    if (controller == "Account")
+    {
+        cLayout = "~/Views/Shared/_Register_Layout.cshtml";
+    }
+    else
+    {
+        if (User.Identity.IsAuthenticated)
+          {
+        var user = User.Identity;  
+        ApplicationDbContext context = new ApplicationDbContext();
+        var UserManager = new UserManager<ApplicationUser>(new Microsoft.AspNet.Identity.EntityFramework.UserStore<ApplicationUser>(context));
+        var s = UserManager.GetRoles(user.GetUserId());
+        
+           if(s[0].ToString() ==("User"))
+            {
+             cLayout = "~/Views/Shared/_Layout_user.cshtml";
+            }
+           else  if (s[0].ToString() == "Admin")
+           {
+               cLayout = "~/Views/Shared/_Layout_admin.cshtml";
+           }
+           else if (s[0].ToString() == "Driver")
+           {
+               cLayout = "~/Views/Shared/_Layout_dri.cshtml";
+           }
+        }
+    }
+    Layout = cLayout;
+}
