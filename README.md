@@ -12,15 +12,15 @@ details of journey, the meters readings, the mileage etc.
 5. LINQ, 
 6. and HTML, CSS, JavaScript, jQuery. 
 
-Installation instructions
+# Installation instructions
 
-Build solution to restore packages
-Rebuild solution
-Change the connection strings inside the Web.config accoarding to your development environment
-Open Package Manager Console
-run the following commands
-    enable-migrations
-    add-migration "initial"
-    update-database -verbose
-Run the application
+    Build solution to restore packages
+    Rebuild solution
+    Change the connection strings inside the Web.config accoarding to your development environment
+    Open Package Manager Console
+    run the following commands
+        enable-migrations
+        add-migration "initial"
+        update-database -verbose
+    Run the application
 
